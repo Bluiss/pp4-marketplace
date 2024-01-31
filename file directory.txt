@@ -1,0 +1,149 @@
+marketplace
+│
+├── accounts/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── accounts/
+│   │       ├── login.html
+│   │       ├── register.html
+│   │       └── profile.html
+│   ├── static/
+│   │   └── accounts/
+│   │       ├── css/
+│   │       │   └── styles.css
+│   │       ├── js/
+│   │       │   └── scripts.js
+│   │       └── img/
+│   │           └── user_image.jpg
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── products/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── products/
+│   │       ├── product_list.html
+│   │       ├── product_detail.html
+│   │       └── product_form.html
+│   ├── static/
+│   │   └── products/
+│   │       ├── css/
+│   │       │   └── styles.css
+│   │       ├── js/
+│   │       │   └── scripts.js
+│   │       └── img/
+│   │           └── product_image.jpg
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── cart/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── orders/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── transactions/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── search/
+│   ├── migrations/
+│   ├── templates/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── user_dashboard/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── user_dashboard/
+│   │       ├── dashboard.html
+│   │       ├── listings.html
+│   │       └── settings.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── reviews/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── reviews/
+│   │       ├── review_list.html
+│   │       ├── add_review.html
+│   │       └── review_detail.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── admin_custom/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── admin_custom/
+│   │       ├── custom_dashboard.html
+│   │       ├── manage_listings.html
+│   │       └── user_management.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── static_pages/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── static_pages/
+│   │       ├── home.html
+│   │       ├── about.html
+│   │       └── contact.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+│
+├── core/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+└── manage.py
