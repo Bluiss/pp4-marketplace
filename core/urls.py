@@ -22,6 +22,7 @@ from accounts.views import accounts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", include("pages.urls")),
     path('accounts/', accounts, name='accounts'),
     path('product/', include('product.urls')), 
 ]
