@@ -1,19 +1,11 @@
 #head-color {
   height: 60px;
   background-color: #083a73;
-
 }
 
 .navbar-icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-}
-
-.navbar-icons img {
-  margin-right: 25px;
-}
-
-.finns-container {
-  margin: auto;
+  gap: 20px;
 }
