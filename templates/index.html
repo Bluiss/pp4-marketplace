@@ -1,54 +1,127 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container-fluid">
-    <div class="row">
 
-        <!-- Product Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in product_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
+<!-- ihero video & title -->
 
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.description}}
-                            </p>
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.price}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
+<video width="320" height="240" autoplay muted loop id="hero-video">
+  <source
+    src="/static/videos/pexels-yaroslav-shuraev-7041992 (2160p).mp4"
+    type="video/mp4"
+  />
+  Your browser does not support the video tag.
+</video>
 
-            </div>
+<div class="featured-container">
+  <span><h1>FEATURED</h1></span>
+  <span><p>some of our favourites this month</p></span>
+</div>
+
+<div class="product-container d-flex justify-content-center align-items-center">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card" style="width: 18rem">
+          <img
+            src="/static/images/deanna-alys-6LBBOwkPzyQ-unsplash.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
         </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card" style="width: 18rem">
+          <img
+            src="/static/images/glenna-haug-DuNXXPScbJM-unsplash.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card" style="width: 18rem">
+          <img
+            src="/static/images/natasha-kendall-_4gFW3mBRCc-unsplash.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="featured-container">
+  <span><h1>A little bit about is</h1></span>
+</div>
+
+<div class="row about-us align-items-center">
+  <div class="col-md-6 about-us-text text-center">
+    <img
+      src="/static/images/nazym-jumadilova-jc0hvIOUbUk-unsplash.jpg"
+      alt=""
+    />
+  </div>
+  <div class="col-md-6 about-us-img text-center">
+    <h6>
+      Finns is a natural skincare brand that keeps it real. <br />We blend the
+      best of nature into effective, chemical-free products. <br />Embrace your
+      natural beauty with our minimalist approach to skincare, <br />focusing on
+      authenticity and sustainability. Discover a straightforward, no-nonsense
+      routine that lets your skin shine without the fluff.
+    </h6>
+  </div>
+</div>
+<div class="row about-us align-items-center">
+  <div class="col-md-6 about-us-text text-center">
+    <h6>
+      At Finns, we take pride in our commitment to ethical practices. <br>We never
+      test on animals, ensuring our products are cruelty-free. <br />Embracing
+      sustainability, we carefully source ingredients and employ eco-friendly
+      packaging, minimizing our environmental footprint. <br />Join us in
+      promoting a beauty routine that not only enhances your skin but also
+      contributes to a compassionate and sustainable planet.
+    </h6>
+  </div>
+  <div class="col-md-6 about-us-img text-center">
+    <img src="/static/images/alex-bertha-Jyg7xHRmXiU-unsplash.jpg" alt="" />
+  </div>
 </div>
 
 <!-- index.html content ends here -->
