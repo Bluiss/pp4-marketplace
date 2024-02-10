@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.views.generic.base import TemplateView  # Add this import
 
 # Create your views here.
-def accounts(request):
-    return HttpResponse("Hello, Blog!")
+class RegisterPageView(TemplateView): 
+    template_name = "register.html"
