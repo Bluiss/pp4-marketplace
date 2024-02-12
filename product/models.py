@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from cloudinary.models import CloudinaryField
+
 
 
 # Create your models here.
@@ -12,7 +14,8 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='image/', null=True, blank=True)
- 
+    product_image = CloudinaryField('image', default='placeholder')
+
+
     def __str__(self):
         return self.title
