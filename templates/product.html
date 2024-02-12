@@ -19,13 +19,13 @@
                   {% if "placeholder" in post.product_image.url %}
                   <img
                     class="card-img-top"
-                    src="{% static 'images/default.jpg' %}"
+                    src="{% static 'images\default-image-icon-missing-picture-page-vector-40546530.jpg' %}"
                     alt="placeholder image"
                   />
                   {% else %}
                   <img
-                    class="card-img-top"
-                    src="{{ post.product.url }}"
+                    class="card-img-top product-image"
+                    src="{{ post.product_image.url }}"
                     alt="{{ post.title }}"
                   />
                   {% endif %}
