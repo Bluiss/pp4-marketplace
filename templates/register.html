@@ -4,7 +4,9 @@
 {% load socialaccount %}
 
 {% if user.is_authenticated %}
-Show account info
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+    <a href="{% url 'product:new' %}">New item</a>
+
 <li class="nav-item">
     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
 </li>

@@ -51,10 +51,15 @@ INSTALLED_APPS = [
     "allauth",  # new
     "allauth.account",  # new
     "allauth.socialaccount",
+    'crispy_forms',
+    'crispy_bootstrap5',
     'accounts',
     'product',
     'pages',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,6 +83,9 @@ ACCOUNT_EMAIL_VERIFICATION = "none"  # new
 
 LOGIN_REDIRECT_URL = "/"  # new
 
+LOGOUT_REDIRECT_URL = "/"  # new
+
+
 # new below
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
@@ -93,7 +101,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

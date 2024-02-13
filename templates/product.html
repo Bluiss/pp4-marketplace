@@ -33,9 +33,9 @@
                         {% endif %}
                       </div>
                     </div>
-                    <a href="{% url 'product_detail' pk=post.pk %}" class="post-link">
+                    <a href="{% url 'product:product_detail' pk=post.pk %}" class="post-link">
                       <h2 class="card-title">{{ post.title }}</h2>
-                  </a>                  
+                    </a>                  
                     <hr />
                     <p class="card-text text-muted h6">{{ post.description}}</p>
                     <hr />
@@ -45,7 +45,9 @@
               </div>
               {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">{% endif %} {% endfor %}</div>
+            <div class="row">{% endif %}
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>
