@@ -1,56 +1,38 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
-<!-- index.html content starts here -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-2">col-8</div>
-        <div class="col-10">
-          <!-- Product Entries Column -->
-          <div class="container mt-3">
-            <div class="card">
-              <div class="card-body">
-                <div class="image-container">
-                  <div class="image-flash">
-                    {% if "placeholder" in object.product_image.url %}
-                      <img
-                        class="card-img-top"
-                        src="{% static 'images/default-image-icon-missing-picture-page-vector-40546530.jpg' %}"
-                        alt="placeholder image"
-                      />
-                    {% else %}
-                      <img
-                        class="card-img-top product-image"
-                        src="{{ object.product_image.url }}"
-                        alt="{{ object.title }}"
-                      />
-                    {% endif %}
-                  </div>
-                </div>
-                <h2 class="card-title">{{ object.title }}</h2>
-                <hr />
-                <p class="card-text text-muted h6">{{ object.description }}</p>
-                <hr />
-                <p class="card-text text-muted h6">{{ object.price }}</p>
-              </div>
-            </div>
-          </div>
 
-  {% if is_paginated %}
-  <nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-      {% if page_obj.has_next %}
-      <li>
-        <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-          NEXT &raquo;</a
-        >
-      </li>
+<div class="container d-flex align-items-center justify-content-center product-detail ">
+  <div class="row">
+    <div class="col-md-6">
+      {% if "placeholder" in object.product_image.url %}
+      <img
+        class="card-img-top img-fluid product-image-detail"
+        src="{% static 'images/default-image-icon-missing-picture-page-vector-40546530.jpg' %}"
+        alt="placeholder image"
+      />
+      {% else %}
+      <img
+        class="card-img-top img-fluid product-image-detail"
+        src="{{ object.product_image.url }}"
+        alt="{{ object.title }}"
+      />
       {% endif %}
-    </ul>
-  </nav>
-  {% endif %}
+    </div>
+    <div class="col-md-6">
+      <div class="card text-center mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ object.title }}</h5>
+          <p class="card-text">{{ object.description }}</p>
+          <p class="card-text">{{ object.price }}</p>
+          <a href="#" class="btn btn-primary">ADD TO BASKET</a>
+          <a href="#" class="btn btn-primary">ADD TO WISHLIST</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <!-- index.html content ends here -->
 {% endblock %}

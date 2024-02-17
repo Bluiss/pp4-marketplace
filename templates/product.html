@@ -13,6 +13,7 @@
           <div class="col-12 mt-3 left">
             <div class="row">
               {% for post in product_list %}
+            
               <div class="col-md-4">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -36,8 +37,6 @@
                     <a href="{% url 'product:product_detail' pk=post.pk %}" class="post-link">
                       <h2 class="card-title">{{ post.title }}</h2>
                     </a>                  
-                    <hr />
-                    <p class="card-text text-muted h6">{{ post.description}}</p>
                     <hr />
                     <p class="card-text text-muted h6">{{ post.price}}</p>
                   </div>
