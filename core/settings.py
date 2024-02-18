@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os 
+from decouple import config
 from django.conf.urls.static import static
 if os.path.isfile('env.py'):
     import env
@@ -51,12 +52,30 @@ INSTALLED_APPS = [
     "allauth",  # new
     "allauth.account",  # new
     "allauth.socialaccount",
+    'allauth.socialaccount.providers.google',
     'crispy_forms',
     'crispy_bootstrap5',
     'accounts',
     'product',
     'pages',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': config('SOCIALACCOUNT_GOOGLE_CLIENT_ID', default=''),
+            'secret': config('SOCIALACCOUNT_GOOGLE_SECRET', default=''),
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -87,14 +106,7 @@ LOGOUT_REDIRECT_URL = "/"  # new
 
 
 # new below
-SOCIALACCOUNT_PROVIDERS = {
-    "github": {
-        "APP": {
-            "client_id": "123",
-            "secret": "456",
-        }
-    }
-}
+
 
 ROOT_URLCONF = 'core.urls'
 
