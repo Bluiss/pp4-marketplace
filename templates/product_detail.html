@@ -1,7 +1,9 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+{% url 'cart_add' as cart_add_url %}
 
-
-<div class="container d-flex align-items-center justify-content-center product-detail ">
+<div class="container d-flex align-items-center justify-content-center product-detail">
   <div class="row">
     <div class="col-md-6">
       {% if "placeholder" in object.product_image.url %}
@@ -24,7 +26,8 @@
           <h5 class="card-title">{{ object.title }}</h5>
           <p class="card-text">{{ object.description }}</p>
           <p class="card-text">£{{ object.price }}</p>
-          <a href="#" class="btn btn-primary">ADD TO BASKET</a>
+          <p class="card-text">{{ object.id }}</p>
+          <a href="#" data-product-id="{{ object.id }}" id="add-cart" class="btn btn-primary">ADD TO BASKET</a>
           <a href="#" class="btn btn-primary">ADD TO WISHLIST</a>
         </div>
       </div>
@@ -32,7 +35,46 @@
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $("#add-cart").click(function(e){
+          e.preventDefault();
+          var product_id = $(this).data('product-id');
+          $.ajax({
+              url: '/cart/add/',
+              data: {
+                  'product_id': product_id,
+                  'action': 'post'
+              },
+              type: 'post',
+              cache: false,
+              beforeSend: function(xhr) {
+                  xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+              },
+              success: function (data) {
+              },
+              error: function(){
+                  alert("There was an error adding the product to the cart.");
+              }
+          });
+      });
+  
+      function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                  var cookie = jQuery.trim(cookies[i]);
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+  });
+  </script>
 
-
-<!-- index.html content ends here -->
 {% endblock %}
