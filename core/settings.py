@@ -106,7 +106,7 @@ LOGIN_REDIRECT_URL = "/"  # new
 LOGOUT_REDIRECT_URL = "/"  # new
 
 
-# new below
+
 
 
 ROOT_URLCONF = 'core.urls'
