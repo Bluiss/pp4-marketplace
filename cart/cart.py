@@ -1,3 +1,6 @@
+from product.models import Product
+
+
 class Cart():
     def __init__(self, request):
         self.session = request.session 
@@ -22,3 +25,11 @@ class Cart():
             self.cart[product_id] = {'price': product.price}
 
         self.session = True
+
+    
+    def get_prods(self):
+        product_ids = self.cart.keys()
+
+        products = Product.objects.filter(id__in=product_ids).order_by('id')
+
+        return products

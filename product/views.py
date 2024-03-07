@@ -10,6 +10,7 @@ class ProductList(generic.ListView):
     model = Product
     template_name = "product.html"
     paginate_by = 6
+    ordering = ['id']
 
 # View for displaying detailed information about a single product
 class ProductListDetail(generic.DetailView):
