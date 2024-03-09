@@ -4,6 +4,11 @@ from .forms import NewProductForm
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Product
+from .forms import NewProductForm
+
+
 
 # View for displaying a paginated list of products
 class ProductList(generic.ListView):
@@ -42,3 +47,16 @@ def new(request):
     # Render the form template with the instantiated form
     return render(request, 'product/form.html', {'form': form})
 
+@login_required
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+
+    if request.method == "POST":
+        messages.success(request, f"{product.name} added to your cart.")
+        return redirect("cart:add_to_cart", product_id=product.id)
+
+    context = {
+        "product": product,
+    }
+
+    return render(request, "products/product_detail.html", context)

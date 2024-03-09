@@ -1,33 +1,42 @@
-from django.shortcuts import render, get_object_or_404
-from .cart import Cart
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import Cart
 from product.models import Product
-from django.http import JsonResponse
 
-def cart_summary(request):
+@login_required
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart_item = Cart.objects.filter(user=request.user, product=product).first()
 
-    cart = Cart(request)
-    cart_products = cart.get_prods()
+    if cart_item:
+        cart_item.quantity += 1
+        cart_item.save()
+        messages.success(request, "Item added to your cart.")
+    else:
+        Cart.objects.create(user=request.user, product=product)
+        messages.success(request, "Item added to your cart.")
 
-    return render(request, "cart_summary.html", {"cart_products": cart_products, "cart": cart})
+    return redirect("cart:cart_detail")
 
-def cart_add(request):
-    # get cart
-    cart = Cart(request)
-    
-    # test post
-    if request.POST.get('action') == 'post':
-        product_id = request.POST.get('product_id')
-        if product_id is None:
-            return JsonResponse({'error': 'No product_id in POST data'}, status=400)
-        product_id = int(product_id)
-        product = get_object_or_404(Product, id=product_id)
-        cart.add(product=product)
+@login_required
+def remove_from_cart(request, cart_item_id):
+    cart_item = get_object_or_404(Cart, id=cart_item_id)
 
-        response = JsonResponse({'Product Name': product.title})  # change 'name' to 'title'
-        return response
+    if cart_item.user == request.user:
+        cart_item.delete()
+        messages.success(request, "Item removed from your cart.")
 
-def cart_delete(request):
-    pass
+    return redirect("cart:cart_detail")  
 
-def cart_update(request):
-    pass
+@login_required
+def cart_detail(request):
+    cart_items = Cart.objects.filter(user=request.user)
+    total_price = sum(item.quantity * item.product.price for item in cart_items)
+
+    context = {
+        "cart_items": cart_items,
+        "total_price": total_price,
+    }
+
+    return render(request, "cart/cart_detail.html", context)
