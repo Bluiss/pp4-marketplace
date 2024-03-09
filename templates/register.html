@@ -2,100 +2,111 @@
 
 {% block content %}
 {% load socialaccount %}
+{% load static %}
 
+<div class="roboto">
 {% if user.is_authenticated %}
     {# Content for authenticated users #}
-    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
-    <li class="nav-item">
-        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-    </li>
-    {% if user.is_staff %}
-        {# Content for admin users #}
-        <a href="{% url 'product:new' %}">New item</a>
-        <li class="nav-item">
-</li>
-    {% endif %}
-{% else %}
 
-<div class="container text-center roboto">
-    <div class="row">
-        <div class="col-6">
-            <form method="post" action="{% url 'account_login' %}" class="pt-1">
-                {% csrf_token %}
-                {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
-                <p class="form-text error-text">
-                    {{ form.non_field_errors.as_text }}
-                </p>
-                <div class="mb-4">
-                    <label for="id_login" class="form-label">Username</label>
-                    <input type="text" class="form-control shadow-none p-3" id="id_login" aria-describedby="usernameHelp"
-                           placeholder="Your username" name="login">
-                    <p id="usernameHelp" class="form-text error-text">
-                        {{ form.login.errors.as_text }}
-                    </p>
-                </div>
-                <div class="mb-4">
-                    <label for="id_password" class="form-label">Password</label>
-                    <input type="password" class="form-control shadow-none p-3" id="id_password" aria-describedby="passwordHelp"
-                           placeholder="At least 8 characters or more" name="password">
-                    <p id="passwordHelp" class="form-text error-text">
-                        {{ form.password.errors.as_text }}
-                    </p>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mb-5" style="max-width: 400px">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value=""
-                               name="remember" id="id_remember">
-                        <label class="form-check-label remember-text" for="id_remember">
-                            Remember me
-                        </label>
+        <a class="nav-link d-flex justify-content-end {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+
+    {% for post in UserProfileDash %}
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Your image display logic here -->
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.name }}</h5>
+                        <p class="card-text">{{ post.bio }}</p>
+                        <p class="card-text">{{ post.location }}</p>
+                        <p class="card-text">{{ post.date_of_birth }}</p>
+                        <p class="card-text">{{ post.address }}</p>
                     </div>
                 </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button class=" btn btn-primary" type="submit" id="loginButton">Sign In</button>
-                  </div>
-            </form>
-        </div>
-        <div class="col-6">
-            <p>Or</p>
-            <button class="gsi-material-button">
-                <div class="gsi-material-button-state"></div>
-                <div class="gsi-material-button-content-wrapper">
-                  <div class="gsi-material-button-icon">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
-                      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-                      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-                      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-                      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-                      <path fill="none" d="M0 0h48v48H0z"></path>
-                    </svg>
-                  </div>
-                  <span class="gsi-material-button-contents"><a href="{% provider_login_url 'google' %}">Sign up with Google</a></span>
-                  <span style="display: none;">Sign in with Google</span>
-                </div>
-              </button>
+            </div>
         </div>
     </div>
-</div>
+    {% endfor %}
 
 
+    {% if user.is_staff %}
+        {# Content for admin users #}
+        <div class="list-group card d-flex justify-content-center" style="width: 18rem;"">
+            <a href="{% url 'product:new' %}" class="list-group-item list-group-item-action">New Item</a>
+            <a href="#" class="list-group-item list-group-item-action">Edit Item</a>
+            <a href="#" class="list-group-item list-group-item-action">Remove Item</a>
+        </div>
+    {% endif %}
+{% else %}
+    <!-- Content for non-authenticated users -->
+    <div class="container text-center roboto">
+        <div class="row">
+            <div class="col-6">
+                <form method="post" action="{% url 'account_login' %}" class="pt-1">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <p class="form-text error-text">
+                        {{ form.non_field_errors.as_text }}
+                    </p>
+                    <div class="mb-4">
+                        <label for="id_login" class="form-label">Username</label>
+                        <input type="text" class="form-control shadow-none p-3" id="id_login" aria-describedby="usernameHelp"
+                               placeholder="Your username" name="login">
+                        <p id="usernameHelp" class="form-text error-text">
+                            {{ form.login.errors.as_text }}
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" class="form-control shadow-none p-3" id="id_password" aria-describedby="passwordHelp"
+                               placeholder="At least 8 characters or more" name="password">
+                        <p id="passwordHelp" class="form-text error-text">
+                            {{ form.password.errors.as_text }}
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-5" style="max-width: 400px">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value=""
+                                   name="remember" id="id_remember">
+                            <label class="form-check-label remember-text" for="id_remember">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class=" btn btn-primary" type="submit" id="loginButton">Sign In</button>
+                      </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <p>Or</p>
+                <button class="gsi-material-button">
+                    <!-- ... (Google sign-up button HTML) ... -->
+                    <span class="gsi-material-button-contents"><a href="{% provider_login_url 'google' %}">Sign up with Google</a></span>
+                    <span style="display: none;">Sign in with Google</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
-
-<div class="account-help roboto">
-	<div >
-		<a href="{% url 'account_reset_password' %}" class="small text-right reset-password-text d-flex justify-content-center">
-			Forgotten your password?
-		</a>
-	</div>
-	<div class="signup-container d-flex justify-content-center">
-		<h5>Don't have an account? Register<a class="{% if request.path == signup_url %}active{% endif %}" aria-current="page"
-			href="{% url 'account_signup' %}"> Here</a> </h5>
-		</div>
-</div>
-
-
+    <div class="account-help roboto">
+        <div>
+            <a href="{% url 'account_reset_password' %}" class="small text-right reset-password-text d-flex justify-content-center">
+                Forgotten your password?
+            </a>
+        </div>
+        <div class="signup-container d-flex justify-content-center">
+            <h5>Don't have an account? Register
+                <a class="{% if request.path == '/accounts/register/' %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}"> Here</a>
+            </h5>
+        </div>
+    </div>
 {% endif %}
+</div>
 
 {% endblock %}
