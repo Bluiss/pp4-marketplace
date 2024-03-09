@@ -20,6 +20,7 @@ from accounts.views import RegisterPageView
 from django.conf import settings  
 from django.conf.urls.static import static 
 from cart.views import Cart
+from pages.views import ContactPage
 
 
 urlpatterns = [
@@ -31,6 +32,9 @@ urlpatterns = [
     path('accounts/', include('allauth.socialaccount.urls')),
     path('cart/', include('cart.urls')),  
     path('cart_summary/', Cart, name='cart_summary'),  
+    path('contact_us/', ContactPage.as_view(), name='contact_us'),
+
+    
 ]
 
 
