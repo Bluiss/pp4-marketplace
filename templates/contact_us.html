@@ -1,5 +1,6 @@
 <!-- templates/about.html -->
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 <div class="img-container">
   <img
     src="/static/images/pexels-lumn-167699.jpg"
@@ -7,13 +8,54 @@
     id="hero-contact-img"
     alt=""
   />
-  <div class="centered"><h1>Contact Us</h1></div>
+  <div class="centered">
+    <h1>Get In Touch</h1>
+    <h2>If you’ve got a question, we’ve got the answer. Just choose your communication channel, reach out, and we’ll be on hand to help.</h2>
+  </div>
 </div>
 
-<div class="container text-center">
+<!-- Contact Form -->
+<div class="container-lg roboto mt-5 contact-us">
   <div class="row">
-    <div class="col">col</div>
-    <div class="col">col</div>
+    <div class="col-md-6">
+      <i class="fa-regular fa-envelope"></i>
+      <h2>Email Us Anytime</h2>
+      <p>For all customer and business enquiries, please email <a href="mailto:info@finnskincare.com">info@finnskincare.com</a></p>
+      <p>For press and influencer enquiries only, please email <a href="mailto:PR@finnskincare.com">PR@finnskincare.com</a></p>
+      <p>Alternatively, please fill in the details below, along with a short message, and a member of the FINNS team will contact you shortly.</p>
+      <p>If you're looking to get in touch with a specific FINNS Ambassador, please provide their name and location in your message.</p>
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label"></label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="Email address:"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label"></label>
+          <input type="name" class="form-control" id="name" placeholder="Name:"/>
+        </div>
+        <div class="mb-3">
+          <label for="order-number" class="form-label"></label>
+          <input type="order-number" class="form-control" id="order-number" placeholder="Order Number (If Applicable):"/>
+        </div>
+        <label for="exampleFormControlTextarea1"></label>
+           <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type your message here"></textarea>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6 text-center">
+      <i class="fa-solid fa-phone"></i>
+      <p>GIVE US A CALL</p>
+      <p>Give us a call on +44-5317-191-253 to speak to one of our customer service advisors.</p>
+      <p>Monday - Friday: 8am-7pm GMT</p>
+      <p>Weekends: 9am-5pm GMT</p>
+      <p>Closed Bank Holidays</p>
+    </div>
   </div>
 </div>
 

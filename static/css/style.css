@@ -250,3 +250,12 @@ body {
   font-size: 40px;
   font-family: "Roboto", serif;
 }
+
+@media screen and (max-width: 425px){
+  .contact-us{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+}
