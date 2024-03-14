@@ -1,9 +1,13 @@
 from django import forms
-
 from .models import Product
 
 class NewProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('seller', 'title', 'price', 'quantity','product_image','description')
+        fields = ('seller', 'title', 'price', 'quantity','category','product_image','description')
 
+
+class EditProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('seller', 'title', 'price', 'quantity','category','product_image','description')

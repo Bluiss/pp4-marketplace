@@ -1,6 +1,6 @@
 from django.contrib import messages
 from .models import Product
-from .forms import NewProductForm
+from .forms import NewProductForm, EditProductForm
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -15,6 +15,12 @@ class ProductList(generic.ListView):
     template_name = "product.html"
     paginate_by = 6
     ordering = ['id']
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = self.get_queryset()  # Pass the queryset of products to the template
+        return context
 
 # View for displaying detailed information about a single product
 class ProductListDetail(generic.DetailView):
@@ -46,3 +52,22 @@ def new(request):
     # Render the form template with the instantiated form
     return render(request, 'product/form.html', {'form': form})
 
+
+
+@login_required
+def edit(request, model_id):  # Add model_id as a parameter
+    model_instance = Product.objects.get(pk=model_id)
+
+    if request.method == "POST":
+        editForm = EditProductForm(request.POST, instance=model_instance)  # Correct typo in variable name
+
+        if editForm.is_valid():
+            editForm.save()  # Call editForm.save() to save the form data
+            # Display a success message and redirect to the edited product's detail page
+            messages.success(request, "Product updated")
+            return redirect('product:product_detail', pk=model_instance.pk)  # Use model_instance instead of new_product
+
+    else:
+        editForm = EditProductForm(instance=model_instance)  # Use instance=model_instance
+
+    return render(request, 'product/edit_form.html', {'form': editForm})  # Use editForm instead of form

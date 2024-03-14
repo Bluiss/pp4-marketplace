@@ -33,13 +33,15 @@
 
 
     {% if user.is_staff %}
-        {# Content for admin users #}
-        <div class="list-group card d-flex justify-content-center" style="width: 18rem;"">
-            <a href="{% url 'product:new' %}" class="list-group-item list-group-item-action">New Item</a>
-            <a href="#" class="list-group-item list-group-item-action">Edit Item</a>
-            <a href="#" class="list-group-item list-group-item-action">Remove Item</a>
-        </div>
-    {% endif %}
+    {# Content for admin users #}
+    <div class="list-group card d-flex justify-content-center" style="width: 18rem;">
+        <a href="{% url 'product:new' %}" class="list-group-item list-group-item-action">New Item</a>
+        {% for product in products %}
+            <a href="{% url 'product:edit' model_id=product.pk %}">Edit</a>
+        {% endfor %}
+        <a href="#" class="list-group-item list-group-item-action">Remove Item</a>
+    </div>
+{% endif %}
 {% else %}
     <!-- Content for non-authenticated users -->
     <div class="container text-center roboto">
