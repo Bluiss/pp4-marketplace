@@ -31,13 +31,22 @@
             {% csrf_token %}
             <input type="submit" value="Add to Cart">
         </form>
-        </div>
+        {% if user.is_authenticated %}
+        <a href="{% url 'product:delete_post' pk=product.pk %}">Delete</a>
+        {% endif %}
+      </div>
       </div>
     </div>
   </div>
 </div>
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/delete.js' %}"></script>
 {% endblock %}

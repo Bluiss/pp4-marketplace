@@ -15,16 +15,16 @@
         {% csrf_token %}
 
         <div class="space-y-4">
-            {{ form.as_p }}
+            {{ editForm.as_p }}
         </div>
 
-        {% if form.errors or form.non_field_errors %}
+        {% if editform.errors or editform.non_field_errors %}
             <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                {% for field in form %}
+                {% for field in editform %}
                     {{ field.errors }}
                 {% endfor %}
 
-                {{ form.non_field_errors }}
+                {{ editform.non_field_errors }}
             </div>
         {% endif %}
 

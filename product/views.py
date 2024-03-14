@@ -5,6 +5,9 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
+
 
 
 
@@ -17,10 +20,6 @@ class ProductList(generic.ListView):
     ordering = ['id']
 
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['products'] = self.get_queryset()  # Pass the queryset of products to the template
-        return context
 
 # View for displaying detailed information about a single product
 class ProductListDetail(generic.DetailView):
@@ -59,7 +58,7 @@ def edit(request, model_id):  # Add model_id as a parameter
     model_instance = Product.objects.get(pk=model_id)
 
     if request.method == "POST":
-        editForm = EditProductForm(request.POST, instance=model_instance)  # Correct typo in variable name
+        editForm = EditProductForm(request.POST, instance=model_instance)
 
         if editForm.is_valid():
             editForm.save()  # Call editForm.save() to save the form data
@@ -71,3 +70,12 @@ def edit(request, model_id):  # Add model_id as a parameter
         editForm = EditProductForm(instance=model_instance)  # Use instance=model_instance
 
     return render(request, 'product/edit_form.html', {'form': editForm})  # Use editForm instead of form
+    
+
+
+# View for deleting a product (requires user authentication)
+@login_required
+class DeletePost(DeleteView):
+    model = Product
+    template_name = "delete_post.html"
+    success_url = reverse_lazy("ProductList") 
