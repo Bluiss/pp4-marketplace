@@ -3,5 +3,4 @@ from .models import UserProfile
 
 class UserProfileDetailView(DetailView):
     model = UserProfile
-    template_name = 'authenticated_base.html'  
-    context_object_name = 'user_profile'  
+    template_name = 'authenticated_base.html'
