@@ -5,41 +5,6 @@
 {% load static %}
 
 <div class="roboto">
-{% if user.is_authenticated %}
-    {# Content for authenticated users #}
-
-        <a class="nav-link d-flex justify-content-end {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-
-    {% for post in UserProfileDash %}
-    <div class="container d-flex align-items-center justify-content-center">
-        <div class="row">
-            <div class="col-md-6">
-                <!-- Your image display logic here -->
-            </div>
-            <div class="col-md-6">
-                <div class="card text-center mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.name }}</h5>
-                        <p class="card-text">{{ post.bio }}</p>
-                        <p class="card-text">{{ post.location }}</p>
-                        <p class="card-text">{{ post.date_of_birth }}</p>
-                        <p class="card-text">{{ post.address }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-
-
-    {% if user.is_staff %}
-    <div class="list-group card d-flex justify-content-center" style="width: 18rem;">
-        <a href="{% url 'product:new' %}" class="list-group-item list-group-item-action">New Item</a>
-        <a href="#"class="list-group-item list-group-item-action" >Edit</a>
-        <a href="#" class="list-group-item list-group-item-action">Remove Item</a>
-    </div>
-{% endif %}
-{% else %}
     <!-- Content for non-authenticated users -->
     <div class="container text-center roboto">
         <div class="row">
@@ -105,7 +70,6 @@
             </h5>
         </div>
     </div>
-{% endif %}
 </div>
 
 {% endblock %}

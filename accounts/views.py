@@ -1,19 +1,9 @@
+from django.views.generic import View
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic.base import TemplateView  # Add this import
-from django.views import View
-from product.models import Product 
 
-
-
-
-# Create your views here.
-class RegisterPageView(TemplateView): 
-    template_name = "register.html"
-    product = Product.objects.get(pk=1)
-    context = {'product': product}
-        
-
-
-
- 
+class RegisterPageView(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return render(request, 'authenticated_base.html')
+        else:
+            return render(request, 'register.html')
