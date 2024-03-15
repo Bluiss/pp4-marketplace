@@ -1,11 +1,7 @@
-from django.shortcuts import render
-from django.views import generic
+from django.views.generic import DetailView
 from .models import UserProfile
-from django.contrib.auth.models import DetailView
 
-
-# Create your views here.
-class UserProfileDash(generic.DetailView):
+class UserProfileDetailView(DetailView):
     model = UserProfile
-    template_name = "register.html"
-
+    template_name = 'authenticated_base.html'  
+    context_object_name = 'user_profile'  
