@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .models import Product
 from .forms import NewProductForm, EditProductForm
@@ -26,6 +27,7 @@ class ProductList(generic.ListView):
 class ProductListDetail(generic.DetailView):
     model = Product
     template_name = "product_detail.html"
+    
 
 # View for creating a new product (requires user authentication)
 @login_required
@@ -71,3 +73,13 @@ def edit(request, model_id):  # Add model_id as a parameter
         editForm = EditProductForm(instance=model_instance)  # Use instance=model_instance
 
     return render(request, 'product/edit_form.html', {'form': editForm})  # Use editForm instead of form
+
+@login_required
+def delete(request , model_id):
+    product = get_object_or_404(Product, pk=model_id)
+
+    if request.method == "POST":
+        product.delete()
+        messages.success(request, "Product deleted")
+        return redirect('product:productlist')
+    return render(request, 'product.html', {'product': product})
