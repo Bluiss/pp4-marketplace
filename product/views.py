@@ -52,7 +52,7 @@ def new(request):
             return redirect('product:product_detail', pk=new_product.pk)
 
     # Render the form template with the instantiated form
-    return render(request, 'product/form.html', {'form': form})
+    return render(request, 'product/new.html', {'form': form})
 
 
 
