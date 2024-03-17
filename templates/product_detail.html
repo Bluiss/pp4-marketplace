@@ -34,6 +34,7 @@
           </form>
           {% if user.is_staff %}
           <button class="btn btn-delete" data-product-id="{{ object.id }}">Delete</button>
+          <a href="{% url 'product:edit' object.id %}" class="btn btn-edit">Edit</a>
           {% endif %}
         </div>
       </div>
@@ -74,6 +75,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/static/js/delete.js"></script>
+<script src="/static/js/edit.js"></script>
+
 
 
 {% endblock %}
