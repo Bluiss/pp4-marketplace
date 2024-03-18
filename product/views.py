@@ -51,7 +51,7 @@ def new(request):
             messages.success(request, "Product uploaded")
             return redirect('product:product_detail', pk=new_product.pk)
 
-    # Render the form template with the instantiated form
+    # Render the form template with the instantiated form``
     return render(request, 'product/new.html', {'form': form})
 
 
@@ -69,14 +69,15 @@ def edit(request, model_id):
 
 
 @login_required
-def delete(request , model_id):
+def delete(request, model_id):
     product = get_object_or_404(Product, pk=model_id)
 
-    if request.method == "POST":
+    if request.method == 'POST':
         product.delete()
         messages.success(request, "Product deleted")
         return redirect('product:productlist')
-    return render(request, 'product.html', {'product': product})
+    
+    return render(request, 'product/delete.html', {'product': product})
 
 
 
