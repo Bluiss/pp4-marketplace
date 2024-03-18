@@ -13,19 +13,14 @@ class RegisterPageView(LoginRequiredMixin, DetailView):
     
     def get_object(self, queryset=None):
         user_profile, created = UserProfile.objects.get_or_create(user=self.request.user)
-        return self.request.user.userprofile
+        return user_profile
 
 
-def new_profile(request):
-    if request.method == "POST":
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            new_profile = form.save(commit=False)
-            new_profile.user = request.user
-            new_profile.save()
-            messages.success(request, "Profile uploaded")
-            return redirect('register')  # Redirect to register page
-    else:
-        form = ProfileForm()
-
-    return render(request, 'accounts/new.html', {'form': form})
+def edit_profile(request ,pk):
+    user_profile = UserProfile.objects.get(user=request.user)
+    form = ProfileForm(request.POST or None, request.FILES or None, instance=user_profile)
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Profile edited")
+        return redirect('accounts:register')
+    return render(request, 'accounts/edit_profile.html', {'form': form})

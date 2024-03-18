@@ -29,7 +29,7 @@
                   alt="profile picture"
                 />
                 {% endif %}
-                <i class="far fa-edit mb-5"><a href="#"></a></i>
+                <a href="{% url 'accounts:edit_profile' user_profile.id %}"><i class="fas fa-edit"></i></a>
               </div>
               <div class="col-md-8">
                 <div class="card-body p-4">
