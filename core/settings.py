@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'product',
     'pages',
     'cart',
-    'user_dashboard',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {

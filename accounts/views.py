@@ -1,9 +1,11 @@
-from django.views.generic import View
-from django.shortcuts import render
+from django.views.generic import DetailView
+from .models import UserProfile
 
-class RegisterPageView(View):
-    def get(self, request):
-        if request.user.is_authenticated:
-            return render(request, 'authenticated_base.html')
-        else:
-            return render(request, 'register.html')
+class RegisterPageView(DetailView):
+    template_name = 'register.html'
+    model = UserProfile
+    context_object_name = 'user_profile'
+    
+    def get_object(self, queryset=None):
+        # Retrieve the UserProfile object associated with the current user
+        return self.request.user.userprofile
