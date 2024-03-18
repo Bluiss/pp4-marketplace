@@ -1,104 +1,67 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <!-- index.html content starts here -->
 
-<!-- ihero video & title -->
-
+<!-- Hero video & title -->
 <video width="320" height="240" autoplay muted loop id="hero-video">
   <source
-    src="/static/videos/pexels-yaroslav-shuraev-7041992 (2160p).mp4"
+    src="{% static 'videos/pexels-yaroslav-shuraev-7041992 (2160p).mp4' %}"
     type="video/mp4"
   />
   Your browser does not support the video tag.
 </video>
 
+<!-- Featured section -->
 <div class="featured-container">
   <span><h1>FEATURED</h1></span>
   <span><p>some of our favourites this month</p></span>
 </div>
 
-<div class="product-container d-flex justify-content-center align-items-center">
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card" style="width: 18rem">
-          <img
-            src="/static/images/deanna-alys-6LBBOwkPzyQ-unsplash.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
+<!-- Featured cards -->
+<div class="container-sm">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- Iterate over products -->
+    {% for product in products|slice:":3" %}
+    <div class="col">
+      <div class="card h-100">
+        <!-- Product image -->
+        <img
+          class="card-img-top img-fluid product-image-detail rounded mx-auto d-block"
+          src="{{ product.product_image.url }}"
+          alt="{{ product.title }}"
+        />
+        <div class="card-body">
+          <!-- Product title -->
+          <h5 class="card-title">{{ product.title }}</h5>
+          <!-- Product description -->
+          <p class="card-text">{{ product.description }}</p>
+          <!-- Product price -->
+          <p class="card-text">£{{ product.price }}</p>
         </div>
-      </div>
-      <div class="carousel-item">
-        <div class="card" style="width: 18rem">
-          <img
-            src="/static/images/glenna-haug-DuNXXPScbJM-unsplash.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="card" style="width: 18rem">
-          <img
-            src="/static/images/natasha-kendall-_4gFW3mBRCc-unsplash.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
+        <div class="card-footer">
+          <small class="text-muted">{{product.category}}</small>
         </div>
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    {% endfor %}
   </div>
 </div>
 
+<!-- About Us section -->
 <div class="featured-container">
-  <span><h1>A little bit about is</h1></span>
+  <span><h1>A little bit about us</h1></span>
 </div>
 
+<!-- About Us content -->
 <div class="row about-us align-items-center">
+  <!-- About Us text -->
   <div class="col-md-6 about-us-text text-center">
     <img
-      src="/static/images/nazym-jumadilova-jc0hvIOUbUk-unsplash.jpg"
+      src="{% static 'images/nazym-jumadilova-jc0hvIOUbUk-unsplash.jpg' %}"
       alt=""
     />
   </div>
+  <!-- About Us image -->
   <div class="col-md-6 about-us-img text-center">
     <h6>
       Finns is a natural skincare brand that keeps it real. <br />We blend the
@@ -109,19 +72,25 @@
     </h6>
   </div>
 </div>
+<!-- Second About Us content -->
 <div class="row about-us align-items-center">
+  <!-- About Us text -->
   <div class="col-md-6 about-us-text text-center">
     <h6>
-      At Finns, we take pride in our commitment to ethical practices. <br>We never
-      test on animals, ensuring our products are cruelty-free. <br />Embracing
-      sustainability, we carefully source ingredients and employ eco-friendly
-      packaging, minimizing our environmental footprint. <br />Join us in
-      promoting a beauty routine that not only enhances your skin but also
+      At Finns, we take pride in our commitment to ethical practices. <br />We
+      never test on animals, ensuring our products are cruelty-free.
+      <br />Embracing sustainability, we carefully source ingredients and employ
+      eco-friendly packaging, minimizing our environmental footprint. <br />Join
+      us in promoting a beauty routine that not only enhances your skin but also
       contributes to a compassionate and sustainable planet.
     </h6>
   </div>
+  <!-- About Us image -->
   <div class="col-md-6 about-us-img text-center">
-    <img src="/static/images/alex-bertha-Jyg7xHRmXiU-unsplash.jpg" alt="" />
+    <img
+      src="{% static 'images/alex-bertha-Jyg7xHRmXiU-unsplash.jpg' %}"
+      alt=""
+    />
   </div>
 </div>
 

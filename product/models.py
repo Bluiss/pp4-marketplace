@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User  # Import User model
+
 
 class Product(models.Model):
     CATEGORY_CHOICES = [
@@ -15,7 +17,7 @@ class Product(models.Model):
         # Add more choices as needed
     ]
 
-    seller = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_products')
     title = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)

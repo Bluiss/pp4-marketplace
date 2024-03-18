@@ -57,23 +57,9 @@ body {
 
 /* Carousel styling */
 
-#product-container {
-  margin-top: 100px;
-}
 
-#product-container img {
-  max-width: 100%;
-}
 
-.card img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
-.about-us img {
-  width: 50%;
-  border-radius: 5px;
-}
 /* About us styling */
 
 /* Product image styling */
