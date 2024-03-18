@@ -65,18 +65,16 @@ body {
 /* Product image styling */
 
 .product-image {
-  width: 200px; 
-  height: 200px;
+  height: 30vh;
   object-fit: cover; 
 }
 
 .product-detail {
-  margin-top: 150px;
+  margin-top: 5vh;
 }
 
 .product-image-detail {
-  width: 100%;
-  height: auto;
+  height: 40vh;
   object-fit: cover;
 }
 

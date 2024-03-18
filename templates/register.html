@@ -6,9 +6,9 @@
 
 <div class="roboto">
     <!-- Content for non-authenticated users -->
-    <div class="container text-center roboto">
+    <div class="container text-center roboto justify-content-center">
         <div class="row">
-            <div class="col-6">
+            <div class="col">
                 <form method="post" action="{% url 'account_login' %}" class="pt-1">
                     {% csrf_token %}
                     {% if redirect_field_value %}
@@ -47,17 +47,9 @@
                       </div>
                 </form>
             </div>
-            <div class="col-6">
-                <p>Or</p>
-                <button class="gsi-material-button">
-                    <!-- ... (Google sign-up button HTML) ... -->
-                    <span class="gsi-material-button-contents"><a href="{% provider_login_url 'google' %}">Sign up with Google</a></span>
-                    <span style="display: none;">Sign in with Google</span>
-                </button>
-            </div>
+           
         </div>
     </div>
-
     <div class="account-help roboto">
         <div>
             <a href="{% url 'account_reset_password' %}" class="small text-right reset-password-text d-flex justify-content-center">
