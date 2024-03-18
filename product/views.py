@@ -32,19 +32,17 @@ class ProductListDetail(generic.DetailView):
 # View for creating a new product (requires user authentication)
 @login_required
 def new(request):
-    form = ProductForm()
+    form = ProductForm(request.POST or None, request.FILES or None)  
 
-    if request.method == "POST":
-        newForm = ProductForm(request.POST, request.FILES)  
-        if newForm.is_valid():
-            new_product = newForm.save(commit=False)
-            new_product.seller = request.user
-            new_product.save()
-
-            messages.success(request, "Product uploaded")
-            return redirect('product:product_detail', pk=new_product.pk)
+    if request.method == "POST" and form.is_valid():
+        new_product = form.save(commit=False)
+        new_product.seller = request.user
+        new_product.save()
+        messages.success(request, "Product uploaded")
+        return redirect('product:product_detail', pk=new_product.pk)
 
     return render(request, 'product/new.html', {'form': form})
+
 
 
 

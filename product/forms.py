@@ -7,7 +7,7 @@ class ProductForm(forms.ModelForm):
         fields = ('seller', 'title', 'price', 'quantity','category','product_image','description')
 
         widgets = {
-            'seller': forms.HiddenInput(),
+            'seller': forms.Select(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
             'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
