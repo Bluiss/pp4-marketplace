@@ -1,13 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from .models import Product 
-
-# Create your models here.
+from product.models import Product 
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product) 
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, default=None) 
     quantity = models.IntegerField(default=1)
 
     def __str__(self):

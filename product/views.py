@@ -27,6 +27,11 @@ class ProductList(generic.ListView):
 class ProductListDetail(generic.DetailView):
     model = Product
     template_name = "product_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_id'] = self.object.id
+        return context
     
 
 # View for creating a new product (requires user authentication)
@@ -71,4 +76,17 @@ def delete(request, model_id):
 
 
 
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    
+    if request.method == "POST":
+        messages.success(request, f"Product {product.name} added to cart")
+        return redirect("product_cart:add_cart", product_id=product_id)
+    
+    context = {
+        "product": product,
+        "product_id": product_id,  # Ensure product_id is passed to the context
+        "user": request.user  # Ensure the user is passed to the context
+    }
 
+    return render(request, "product/product_detail.html", context)

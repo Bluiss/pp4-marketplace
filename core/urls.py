@@ -19,20 +19,20 @@ from django.urls import path, include
 from accounts.views import RegisterPageView
 from django.conf import settings  
 from django.conf.urls.static import static 
-from cart.views import Cart
 from pages.views import HomePageView, AboutPageView, ContactPage
+from product_cart import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", HomePageView.as_view(), name='home'),  # Point the homepage to HomePageView
+    path("", HomePageView.as_view(), name='home'),  
     path('about/', AboutPageView.as_view(), name='about'),
     path('accounts/', include('accounts.urls')), 
     path('product/', include('product.urls')), 
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.socialaccount.urls')),
-    path('cart/', include('cart.urls')),  
     path('contact_us/', ContactPage.as_view(), name='contact_us'),
+    path('cart/', include('product_cart.urls', namespace='product_cart')),  
 ]
 
 

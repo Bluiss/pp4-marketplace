@@ -26,10 +26,7 @@
           <p class="card-text">{{ object.description }}</p>
           <p class="card-text">£{{ object.price }}</p>
           <p class="card-text">{{ object.id }}</p>
-          <form method="post">
-            {% csrf_token %}
-            <input type="submit" value="Add to Cart" />
-          </form>
+          <a href="{% url 'product_cart:add_cart' product_id=object.pk %}">Add to Cart</a>
           {% if user.is_staff %}
           <button class="btn btn-delete" data-product-id="{{ object.id }}">
             Delete
