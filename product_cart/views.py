@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Cart, Product
@@ -13,17 +14,25 @@ def add_cart(request, product_id):
         messages.success(request, "Product added to cart")
     return redirect("product_cart:cart_detail")
 
+
+
 @login_required
 def delete_cart(request, product_id):
     cart_product = get_object_or_404(Cart, product_id=product_id, user=request.user)
-    if cart_product.quantity > 1:
-        cart_product.quantity -= 1
-        cart_product.save()
-        messages.success(request, "Product removed from cart")
+    if cart_product:
+        if cart_product.quantity > 1:
+            cart_product.quantity -= 1
+            cart_product.save()
+            messages.success(request, "Product removed from cart")
+        else:
+            cart_product.delete()
+            messages.success(request, "Product removed from cart")
     else:
-        cart_product.delete()
-        messages.success(request, "Product removed from cart")
+        messages.error(request, "Product not found in cart")
     return redirect("product_cart:cart_detail")
+
+
+
 
 @login_required
 def cart_detail(request):

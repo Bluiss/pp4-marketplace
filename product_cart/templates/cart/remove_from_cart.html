@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
    
-    {{ message }}
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
 
-    <form method="post">
+    <form method="POST" action="{% url 'cart:delete_cart' product_id=product.id %}">
         {% csrf_token %}
         <input type="submit" value="Remove from Cart">
     </form>
+    
 {% endblock %}
