@@ -85,15 +85,30 @@
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="{% url 'product:productlist' %}">Shop</a>
+              <a
+                class="nav-link text-dark"
+                aria-current="page"
+                href="{% url 'product:productlist' %}"
+                >Shop</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" aria-current="page" href="{% url 'about' %}"
+              <a
+                class="nav-link text-dark"
+                aria-current="page"
+                href="{% url 'about' %}"
                 >About Us</a
               >
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="{% url 'contact_us' %}">Contact Us</a>
-              </li>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link text-dark"
+                aria-current="page"
+                href="{% url 'contact_us' %}"
+                >Contact Us</a
+              >
+            </li>
           </ul>
           <!-- Left links -->
         </div>
@@ -101,7 +116,7 @@
 
         <!-- Right elements -->
         <!-- SHopping Cart -->
-        <div class="d-flex align-items-center ">
+        <div class="d-flex align-items-center">
           <a href="{% url 'product_cart:cart_detail' %}">
             <img
               src="/static/images/shopping-bag.png"
@@ -127,9 +142,23 @@
       </div>
       <!-- Container wrapper -->
     </nav>
-    <p class="roboto d-flex justify-content-end pr-4">
-      Welcome {{ user.get_username }}
-    </p>
+    <div class="row align-items-center roboto">
+      <div class="col">
+        <div class="user-profile-base text-end">
+          <p class="roboto pr-4 mb-0">Welcome {{ user.get_username }}</p>
+        </div>
+      </div>
+      <div class="col-auto">
+        {% if user.is_authenticated %}
+        <a
+          class="nav-link {% if request.path == logout_url %}active{% endif %}"
+          href="{% url 'account_logout' %}"
+          >Logout</a
+        >
+        {% endif %}
+      </div>
+    </div>
+
     <!-- displaying Django messages -->
     <div class="container">
       <div class="row">
