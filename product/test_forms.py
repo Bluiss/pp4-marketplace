@@ -4,8 +4,13 @@ from django.contrib.auth.models import User
 
 class TestProductForm(TestCase):
     def test_product_form_valid(self):
+        """
+        Test if the product form is valid with all required fields provided.
+        """
+        # Create a test seller user
         seller = User.objects.create(username='test_seller') 
 
+        # Test if the form is valid with all required fields provided
         form = ProductForm(data={
             'title': 'product',
             'price': 100,
@@ -19,6 +24,9 @@ class TestProductForm(TestCase):
 
     
     def test_title_is_required(self):
+        """
+        Test if title field is required.
+        """
         form = ProductForm(data={
             'title': '',
             'price': 100,
@@ -31,6 +39,9 @@ class TestProductForm(TestCase):
 
     
     def test_price_is_required(self):
+        """
+        Test if price field is required.
+        """
         form = ProductForm(data={
             'title': 'product',
             'price': '',
@@ -43,6 +54,9 @@ class TestProductForm(TestCase):
 
     
     def test_description_is_required(self):
+        """
+        Test if description field is required.
+        """
         form = ProductForm(data={
             'title': 'product',
             'price': 100,
@@ -55,6 +69,9 @@ class TestProductForm(TestCase):
 
 
     def test_quantity_is_required(self): 
+        """
+        Test if quantity field is required.
+        """
         form = ProductForm(data={
             'title': 'product',
             'price': 100,
@@ -67,6 +84,9 @@ class TestProductForm(TestCase):
     
 
     def test_category_is_required(self):
+        """
+        Test if category field is required.
+        """
         form = ProductForm(data={
             'title': 'product',
             'price': 100,
@@ -79,6 +99,9 @@ class TestProductForm(TestCase):
 
 
     def test_seller_is_required(self):
+        """
+        Test if seller field is required.
+        """
         form = ProductForm(data={
             'title': 'product',
             'price': 100,

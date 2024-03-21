@@ -20,7 +20,7 @@ class ProductList(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = self.get_queryset()  # Pass the queryset of products to the template
+        context['products'] = self.get_queryset() 
         return context
 
 # View for displaying detailed information about a single product
