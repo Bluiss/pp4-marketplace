@@ -3,6 +3,7 @@ from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Cart, Product
+import logging
 
 @login_required
 def add_cart(request, product_id):
@@ -34,10 +35,21 @@ def delete_cart(request, product_id):
 
 
 
+
+
 @login_required
 def cart_detail(request):
     cart_items = Cart.objects.filter(user=request.user)
-    total_price = sum(item.quantity * item.product.price for item in cart_items)
+    total_price = 0
+
+    for item in cart_items:
+        if item.product is not None and item.product.price is not None:
+            total_price += item.quantity * item.product.price
+        else:
+            if item.product:
+                logging.warning(f"Product {item.product.name} (ID: {item.product.id}) in cart has no price set.")
+            else:
+                logging.warning(f"A product in cart (ID: {item.id}) has no associated product.")
+            item.delete()
 
     return render(request, "cart/cart_detail.html", {"cart_items": cart_items, "total_price": total_price})
-

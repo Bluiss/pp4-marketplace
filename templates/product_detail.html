@@ -28,9 +28,9 @@
           <p class="card-text">{{ object.id }}</p>
           <a href="{% url 'product_cart:add_cart' product_id=object.pk %}">Add to Cart</a>
           {% if user.is_staff %}
-          <button class="btn btn-delete" data-product-id="{{ object.id }}">
-            Delete
-          </button>
+          <a href="{% url 'product:delete' object.id %}" class="btn btn-edit"
+            >Delete</a
+          >
           <a href="{% url 'product:edit' object.id %}" class="btn btn-edit"
             >Edit</a
           >
