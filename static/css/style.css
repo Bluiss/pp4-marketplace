@@ -32,6 +32,14 @@ body {
   color: black !important;
 }
 
+
+.row {
+  --bs-gutter-x: 1rem; /* Adjust as needed */
+  --bs-gutter-y: 0;
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+}
+
 /* Custom styles for the burger menu */
 .navbar-toggler {
   background-color: #fff; /* Background color */
@@ -55,12 +63,17 @@ body {
   margin-bottom: 100px;
 }
 
-/* Carousel styling */
+/* About us index.html styling */
+/* Override Bootstrap image styling to make images responsive */
+.about-us-text img,
+.about-us-img img {
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  border-radius: 24px;
+}
 
 
-
-
-/* About us styling */
 
 /* Product image styling */
 
@@ -86,11 +99,7 @@ body {
   object-fit: cover;
 }
 
-@media screen and (max-width: 375px){
-  .about-container img {
-    display: none;
-  }
-}
+
  /* Signup styling */
 
 .signup {
@@ -132,6 +141,7 @@ body {
   
 }
 
+/* Product styling*/
 
 .product-title{
   text-decoration: none;
@@ -139,12 +149,16 @@ body {
   font-size: 24px;
 }
 
+/* Checkout styling */
+
 .checkout-product-image-detail{
   height: 15vh;
   object-fit: cover;  
 }
 
 
+
+/* Profile Styling */
 .edit-profile-icon{
   font-size: 3vh;
 }
