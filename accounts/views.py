@@ -24,3 +24,4 @@ def edit_profile(request ,pk):
         messages.success(request, "Profile edited")
         return redirect('accounts:register')
     return render(request, 'accounts/edit_profile.html', {'form': form})
+
