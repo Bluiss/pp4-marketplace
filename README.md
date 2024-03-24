@@ -1,39 +1,173 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Project Title
 
-Welcome,
+### Brief Description
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Brief description of the project.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+___
 
-## Codeanywhere Reminders
+## Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+- [Project Title](#project-title)
+    - [Brief Description](#brief-description)
+  - [Contents](#contents)
+  - [Site Objectives](#site-objectives)
+- [User Experience/UX](#user-experienceux)
+  - [Target Audience](#target-audience)
+  - [User Stories](#user-stories)
+- [Design Choices](#design-choices)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+  - [Logo and Favicon](#logo-and-favicon)
+  - [Wireframes](#wireframes)
+  - [Flow Diagram](#flow-diagram)
+  - [Database Plan](#database-plan)
+- [Features](#features)
+  - [Registration](#registration)
+  - [Future Features](#future-features)
+  - [Features Not Included](#features-not-included)
+- [Technologies Used](#technologies-used)
+- [Programming Languages, Frameworks and Libraries Used](#programming-languages-frameworks-and-libraries-used)
+- [Agile](#agile)
+- [Testing](#testing)
+  - [Manual Testing](#manual-testing)
+  - [Bugs](#bugs)
+  - [Lighthouse](#lighthouse)
+  - [Validation Testing](#validation-testing)
+  - [Python Testing](#python-testing)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
+  - [Media](#media)
+  - [Acknowledgments and Thanks](#acknowledgments-and-thanks)
 
-`python3 -m http.server`
+___
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Site Objectives
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+Brief description of the site objectives.
 
-`http_server`
+___
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+# User Experience/UX
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Target Audience
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Brief description of the target audience.
 
-To log into the Heroku toolbelt CLI:
+## User Stories
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### New Visitor Goals
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Goal 1
+- Goal 2
+- Goal 3
 
----
+### Existing Visitor Goals
 
-Happy coding!
+- Goal 1
+- Goal 2
+- Goal 3
+
+___
+
+# Design Choices
+
+## Colour Scheme
+
+Brief description of the colour scheme.
+
+## Typography
+
+Brief description of the typography.
+
+## Logo and Favicon
+
+Brief description of the logo and favicon.
+
+## Wireframes
+
+Brief description of the wireframes.
+
+## Flow Diagram
+
+Brief description of the flow diagram.
+
+## Database Plan
+
+Brief description of the database plan.
+
+# Features
+
+## Registration
+
+Brief description of the registration feature.
+
+## Future Features
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Features Not Included
+
+- Feature 1
+- Feature 2
+- Feature 3
+
+___
+
+# Technologies Used
+
+Brief description of the technologies used.
+
+___
+
+# Programming Languages, Frameworks and Libraries Used
+
+- Language/Framework/Library 1
+- Language/Framework/Library 2
+- Language/Framework/Library 3
+
+# Agile
+
+Brief description of Agile methodology.
+
+# Testing
+
+Brief description of testing procedures.
+
+## Manual Testing
+
+Brief description of manual testing.
+
+## Bugs
+
+Brief description of encountered bugs and resolutions.
+
+## Lighthouse
+
+Brief description of Lighthouse performance scores.
+
+## Validation Testing
+
+Brief description of validation testing.
+
+## Python Testing
+
+Brief description of Python testing.
+
+## Deployment
+
+Brief description of deployment process.
+
+## Credits
+
+Brief description of credits.
+
+## Media
+
+Brief description of media sources.
+
+## Acknowledgments and Thanks
+
+Brief acknowledgment of individuals who provided assistance.
