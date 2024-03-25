@@ -54,13 +54,16 @@ def new(request):
 @login_required
 def edit(request, model_id):
     product = Product.objects.get(pk=model_id)
-    form = ProductForm(request.POST or None, instance=product)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Product edited")
-        return redirect('product:product_detail', model_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Product edited successfully.")
+            return redirect('product:product_detail', model_id)
+    else:
+        form = ProductForm(instance=product)
 
-    return render(request, 'product/edit.html', {'product': product , 'form': form})
+    return render(request, 'product/edit.html', {'product': product, 'form': form})
 
 
 @login_required

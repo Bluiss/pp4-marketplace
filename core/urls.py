@@ -20,7 +20,6 @@ from accounts.views import RegisterPageView
 from django.conf import settings  
 from django.conf.urls.static import static 
 from pages.views import HomePageView, AboutPageView, ContactPage
-from product_cart import views
 
 
 urlpatterns = [
@@ -32,7 +31,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.socialaccount.urls')),
     path('contact_us/', ContactPage.as_view(), name='contact_us'),
-    path('cart/', include('product_cart.urls', namespace='product_cart')),  
 ]
 
 
