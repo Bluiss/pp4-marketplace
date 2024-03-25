@@ -21,13 +21,8 @@ def add_cart(request, product_id):
 def delete_cart(request, product_id):
     cart_product = get_object_or_404(Cart, product_id=product_id, user=request.user)
     if cart_product:
-        if cart_product.quantity > 1:
-            cart_product.quantity -= 1
-            cart_product.save()
-            messages.success(request, "Product removed from cart")
-        else:
-            cart_product.delete()
-            messages.success(request, "Product removed from cart")
+        cart_product.delete()
+        messages.success(request, "Product removed from cart")
     else:
         messages.error(request, "Product not found in cart")
     return redirect("product_cart:cart_detail")
