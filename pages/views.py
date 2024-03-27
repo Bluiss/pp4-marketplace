@@ -1,6 +1,9 @@
+from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from django.views import generic
 from product.models import Product
+from .forms import ContactForm
+from django.contrib import messages
 
 
 class HomePageView(TemplateView):
@@ -19,3 +22,12 @@ class AboutPageView(TemplateView):
 
 class ContactPage(TemplateView): 
     template_name = "contact_us.html"
+
+
+
+
+def contact(request):
+    contact_form = ContactForm()
+    return render(request, 'contact_us.html', {'contact_form': contact_form})
+
+
