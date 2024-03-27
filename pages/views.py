@@ -20,14 +20,16 @@ class AboutPageView(TemplateView):
     
 
 
-class ContactPage(TemplateView): 
-    template_name = "contact_us.html"
-
-
-
 
 def contact(request):
     contact_form = ContactForm()
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, 'Thanks for contacting us. We will get back to you soon.')
+        else:
+            messages.error(request, 'Error sending message. Please try again.')
     return render(request, 'contact_us.html', {'contact_form': contact_form})
 
 

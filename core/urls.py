@@ -19,7 +19,7 @@ from django.urls import path, include
 from accounts.views import RegisterPageView
 from django.conf import settings  
 from django.conf.urls.static import static 
-from pages.views import HomePageView, AboutPageView, ContactPage
+from pages.views import HomePageView, AboutPageView, contact
 
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     path('product/', include('product.urls')), 
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('allauth.socialaccount.urls')),
-    path('contact_us/', ContactPage.as_view(), name='contact_us'),
+    path('contact_us/', contact, name='contact'),  
 ]
 
 
