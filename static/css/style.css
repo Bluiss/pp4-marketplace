@@ -8,6 +8,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 /* Navigation styling */
 
 #finns {
@@ -20,33 +24,6 @@ body {
   background-color: #083a73;
 }
 
-.navbar-icons {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
-}
-
-#navbarNav {
-  font-size: 16px;
-  color: black !important;
-}
-
-.row {
-  --bs-gutter-x: 1rem; /* Adjust as needed */
-  --bs-gutter-y: 0;
-  margin-right: calc(var(--bs-gutter-x) * -0.5);
-  margin-left: calc(var(--bs-gutter-x) * -0.5);
-}
-
-/* Custom styles for the burger menu */
-.navbar-toggler {
-  background-color: #fff; /* Background color */
-}
-
-.navbar-toggler-icon {
-  background-color: #972626; /* Color of the burger icon */
-}
 
 /* Hero styling */
 

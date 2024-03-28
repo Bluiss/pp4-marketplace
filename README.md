@@ -29,12 +29,7 @@ ___
 - [Technologies Used](#technologies-used)
 - [Programming Languages, Frameworks and Libraries Used](#programming-languages-frameworks-and-libraries-used)
 - [Agile](#agile)
-- [Testing](#testing)
-  - [Manual Testing](#manual-testing)
-  - [Bugs](#bugs)
-  - [Lighthouse](#lighthouse)
-  - [Validation Testing](#validation-testing)
-  - [Python Testing](#python-testing)
+- [Testing & Deployment](#testing)
   - [Deployment](#deployment)
   - [Credits](#credits)
   - [Media](#media)
@@ -172,73 +167,121 @@ Brief description of the flow diagram.
 
 ## Registration
 
-Brief description of the registration feature.
+Users are able to, create and edit their profile information
+
+#### Create Account
+#### Edit Account
+
+## Product Features
+
+#### Edit Product
+#### New Product
+#### View All Product
+#### Delete Product
 
 ## Future Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+#### Cart Function
+I had created a cart function that would allow users to add various products to a cart, the feature was able to add but ran into a issue and was advised from student services to descope this aspect of the project. 
 
-## Features Not Included
+##### Reviews
 
-- Feature 1
-- Feature 2
-- Feature 3
+I would like to add a review system so users can rate all of the different products.
+##### Filter
+I would like to add a feature that allows users to filter through all of the different products using their categories
+
 
 ___
 
 # Technologies Used
 
-Brief description of the technologies used.
+Here are the technologies used to build this project:
 
-___
+- [VS Code](https://code.visualstudio.com/) Was used as my main IDE
+- [Github](https://github.com) To host and store the data for the site.
+- [PEP8 Validator](https://pep8ci.herokuapp.com/) Used to check python code for errors
+- [ElephandSQL](https://www.elephantsql.com/) Used to store PostgreSQL database.
+- [Cloudinary](https://cloudinary.com/) Used as cloud storage for images uploaded as part of the blog posts
+- [Heroku](https://id.heroku.com/) Used to deploy the project
 
 # Programming Languages, Frameworks and Libraries Used
 
-- Language/Framework/Library 1
-- Language/Framework/Library 2
-- Language/Framework/Library 3
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+- [Django](https://www.djangoproject.com/)
+- [Bootstrap](https://getbootstrap.com/)
+
 
 # Agile
 
-Brief description of Agile methodology.
+This project was designed using Agile methodology, utilising the Project Board and Issues sections in GitHub
 
-# Testing
+- [Project Board](https://github.com/users/Bluiss/projects/2)
 
-Brief description of testing procedures.
 
-## Manual Testing
+___
 
-Brief description of manual testing.
 
-## Bugs
+# Testing & Deployment
 
-Brief description of encountered bugs and resolutions.
+[Testing Doc]()
 
-## Lighthouse
-
-Brief description of Lighthouse performance scores.
-
-## Validation Testing
-
-Brief description of validation testing.
-
-## Python Testing
-
-Brief description of Python testing.
 
 ## Deployment
 
-Brief description of deployment process.
+### Github Deployment
+
+The website was stored using GitHub for storage of data and version control. To do this I did the following;
+
+After each addition, change or removal of code, in the terminal within your IDE (I used codeanywhere for this project) type:
+
+- git add .
+- git commit -m "meaningful commit message"
+- git push
+
+The files are now available to view within your github repository.
+
+### Creating a Fork or Copying
+
+To clone/fork/copy the repository you click on the fork tab which is situated next to unwatch tab in the top right corner of the page
+
+### Clone
+
+To create a clone you do the following;
+
+1. Click on the code tab, left of the Gitpod tab
+2. To the right of the repository name, click the clipboard icon
+3. In the IED open GitBash
+4. Change the working directory to the location you prefer
+5. Add Git Clone with the copy of the repository name
+6. Clone has been created
+
+### Repository deployment via Heroku
+
+- On the [Heroku Dashboard](https://dashboard.heroku.com) page, click New and then select Create New App from the drop-down menu.
+- When the next page loads insert the App name and Choose a region. Then click 'Create app'
+- In the settings tab click on Reveal Config Vars and add the key Port and the value 8000. The credentials for this app were:
+
+1. Cloudinary URL
+2. Postgres Database URL
+3. Port (8000)
+
+- Below this click Add buildpack and choose python and nodejs in that order.
+
+### Deployment of the app
+
+- Click on the Deploy tab and select Github-Connect to Github.
+- Enter the repository name and click Search.
+- Choose the repository that holds the correct files and click Connect.
+- A choice is offered between manual or automatic deployment whereby the app is updated when changes are pushed to GitHub.
+- Once the deployment method has been chosen the app will be built and can be launched by clicking the Open app button which should appear below the build information window, alternatively, there is another button located in the top right of the page.
+
 
 ## Credits
 
 Brief description of credits.
 
-## Media
-
-Brief description of media sources.
 
 ## Acknowledgments and Thanks
 
