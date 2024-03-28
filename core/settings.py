@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os 
 import sys
-from decouple import config
 from django.conf.urls.static import static
 if os.path.isfile('env.py'):
     import env
@@ -60,22 +59,6 @@ INSTALLED_APPS = [
     'pages',
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': config('SOCIALACCOUNT_GOOGLE_CLIENT_ID', default=''),
-            'secret': config('SOCIALACCOUNT_GOOGLE_SECRET', default=''),
-            'key': ''
-        },
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
