@@ -54,7 +54,7 @@ def new(request):
 @login_required
 def edit(request, model_id):
     product = Product.objects.get(pk=model_id)
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_superuser:
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
@@ -70,7 +70,7 @@ def edit(request, model_id):
 def delete(request, model_id):
     product = get_object_or_404(Product, pk=model_id)
 
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_superuser:
         product.delete()
         messages.success(request, "Product deleted")
         return redirect('product:productlist')
@@ -82,7 +82,7 @@ def delete(request, model_id):
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     
-    if request.method == "POST":
+    if request.method == 'POST' and request.user.is_superuser:
         messages.success(request, f"Product {product.name} added to cart")
         return redirect("product_cart:add_cart", product_id=product_id)
     
