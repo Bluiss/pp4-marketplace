@@ -20,6 +20,9 @@
 
 ###  W3C Validator
 
+#### 
+- All HTML pages were tested through the W3C validator, all passed except one
+- 
 
 #### CSS Validation
 
@@ -36,6 +39,139 @@
 ## MANUAL TESTING
 
 ### Testing User Stories
+
+#### Homepage
+|Index.html| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Home Link|Redirect to Home|Pass|
+|Shop Link|Redirect to Shop|Pass|
+|About Us Link|Redirect to About Us|Pass|
+|Contact Us Link|Redirect to Contact Us|Pass|
+|Profile Icon Link|Redirect to Profile Page, if logged in/ Redirect to Login page is user signed out|Pass|
+|Logout Link|Log User Out|Pass|
+|Shop Link Footer|Redirect to Shop|Pass|
+|About Us Link Footer|Redirect to Footer|Pass|
+|Contact Us Link Footer|Redirect to Contact Us|Pass|
+|Featured Products|Display 3 Products|Pass|
+|Dynamic Welcome Title|Display Username|Pass|
+|Burger Menu|Display on mobile devices|Pass|
+|Burger Links|Direct to appropriate links|Pass|
+
+#### product.html
+|Product.html| | |
+|:----|:----|:----|
+| | | |
+|Feature|Expected Outcome|Result|
+|Product Title|Display Product Title|Pass|
+|Product Price|Display Product Price|Pass|
+|Product Category|Display Product Category|Pass|
+|Product Image|Display Product Image|Pass|
+|Next Button|Take user to next page|Pass|
+|Total Products|Show 6 products per page|Pass|
+
+#### product_detail.html
+|Product_detail.html| | |
+|:----|:----|:----|
+| | | |
+|Feature|Expected Outcome|Result|
+|Product Title|Display Product Title|Pass|
+|Product Price|Display Product Price|Pass|
+|Product Category|Display Product Category|Pass|
+|Product Image|Display Product Image|Pass|
+|Product Stock|Display quantity if adim|Pass|
+|Edit Button|Redirect to edit form|Pass|
+|Delete Button|Redirect to delete form|Pass|
+
+#### about_us.html
+|about_us.html| | |
+|:----|:----|:----|
+| | | |
+|Feature|Expected Outcome|Result|
+|3 feature cards|Display 3 feature cards|Pass|
+
+### contact_us.html
+|contact_us.html| | |
+|:----|:----|:----|
+| | | |
+|Feature|Expected Outcome|Result|
+|Name Field|Accept name input|Pass|
+|Email Field|Accept email input|Pass|
+|Message Field|Accept message input|Pass|
+|Submit Button|Post form to database & admin panel|Pass|
+
+#### register.html if user logged out
+|Register.html if user logged out| | |
+|:----|:----|:----|
+| | | |
+|Feature|Expected Outcome|Result|
+|Username Field|Accept Username|Pass|
+|Password Field|Accept Password|Pass|
+|Forgotten Password Link|Redirect to forgotten password|Pass|
+|Register Link|Redirect to sign up page|Pass|
+|Remember Me Checkbox|Check|Pass|
+|Log user in |Redirect user to profile|Pass|
+
+#### register.html is user logged in
+|Register.html if user logged in| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Name|Display Name|Pass|
+|User Name|Display User Name|Pass|
+|D.O.B|Display dob|Pass|
+|Country|Display country|Pass|
+|Phone Number|Display phone number|Pass|
+|Address|Display address|Pass|
+|Admin Panel|Display admin panel, if user is staff|Pass|
+|Logout Message|Disply message to notify user has logged out|Pass|
+|Login Message|Disply message to notify user has logged in|Pass|
+|Edit Button|Redirect user to edit profile form|Pass|
+|New product link|Redirect to add product form if user staff|Pass|
+
+#### Add product form
+|Add product form| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Seller|Display Seller|Pass|
+|Title|Accept Title input|Pass|
+|Price|Accept Price input|Pass|
+|Quantity|Accept quantity input|Pass|
+|Category|Accept category input|Pass|
+|Description|Accept description input|Pass|
+|Submit form|Post form to database|Pass|
+
+#### Edit product form
+|Edit product form| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Seller|Display Seller|Pass|
+|Title|Accept Title input|Pass|
+|Price|Accept Price input|Pass|
+|Quantity|Accept quantity input|Pass|
+|Category|Accept category input|Pass|
+|Description|Accept description input|Pass|
+|Update form|Update product in database|Pass|
+
+#### Delete product form
+|Edit product form| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Delete product|Delete Prodcut|Pass|
+|Edit product|Redirect to edit form|Pass|
+
+#### Edit user profile
+|Edit profile form| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Name|Edit name|Pass|
+|DOB|Edit DOB|Pass|
+|Country|Edit Country|Pass|
+|Phone Number|Edit Phone Number|Pass|
+|Address|Edit Address|Pass|
+|Edit Message|Display message when user profile is edited|Pass|
+
+
+
 
 
 

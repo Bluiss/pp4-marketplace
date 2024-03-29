@@ -16,22 +16,21 @@
                   <div class="card-body">
                     <div class="image-container">
                       <div class="image-flash">
-                        
                         {% if "placeholder" in post.product_image.url %}
-                        <img
-                          class="card-img-top"
-                          src="{% static 'images/pexels-karolina-grabowska-4041392.jpg' %}"
-                          alt="placeholder image"
-                        />
-                        {% else %}
-                        <a
-                        href="{% url 'product:product_detail' pk=post.pk %}"
-                      >
-                        <img
-                          class="card-img-top product-image"
-                          src="{{ post.product_image.url }}"
-                          alt="{{ post.title }}"
-                        /> </a>
+                        <a href="{% url 'product:product_detail' pk=post.pk %}"
+                          ><img
+                            class="card-img-top"
+                            src="{% static 'images/pexels-karolina-grabowska-4041392.jpg' %}"
+                            alt="placeholder image"
+                          />
+                          {% else %}
+
+                          <img
+                            class="card-img-top product-image"
+                            src="{{ post.product_image.url }}"
+                            alt="{{ post.title }}"
+                          />
+                        </a>
                         {% endif %}
                       </div>
                     </div>
@@ -66,9 +65,7 @@
           &laquo; PREV</a
         >
       </li>
-      {% endif %}
-      
-      {% if page_obj.has_next %}
+      {% endif %} {% if page_obj.has_next %}
       <li>
         <a href="?page={{ page_obj.next_page_number }}" class="page-link">
           NEXT &raquo;</a
@@ -77,8 +74,8 @@
       {% endif %}
     </ul>
   </nav>
-{% endif %}
+  {% endif %}
 
-
-<!-- index.html content ends here -->
-{% endblock %}
+  <!-- index.html content ends here -->
+  {% endblock %}
+</div>
