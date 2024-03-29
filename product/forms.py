@@ -2,11 +2,17 @@ from django import forms
 from .models import Product
 
 
-
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('seller', 'title', 'price', 'quantity','category','description')
+        fields = (
+            'seller',
+            'title',
+            'price',
+            'quantity',
+            'category',
+            'description'
+        )
 
         widgets = {
             'seller': forms.Select(attrs={'class': 'form-control'}),

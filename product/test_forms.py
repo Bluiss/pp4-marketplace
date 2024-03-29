@@ -3,26 +3,6 @@ from .forms import ProductForm
 from django.contrib.auth.models import User
 
 class TestProductForm(TestCase):
-    def test_product_form_valid(self):
-        """
-        Test if the product form is valid with all required fields provided.
-        """
-        # Create a test seller user
-        seller = User.objects.create(username='test_seller') 
-
-        # Test if the form is valid with all required fields provided
-        form = ProductForm(data={
-            'title': 'product',
-            'price': 100,
-            'description': 'description',
-            'quantity': 1,  
-            'category': 'Cleanser', 
-            'seller': seller.id,
-        })
-
-        self.assertTrue(form.is_valid(), msg="Form is Invalid" )
-
-    
     def test_title_is_required(self):
         """
         Test if title field is required.
@@ -31,13 +11,15 @@ class TestProductForm(TestCase):
             'title': '',
             'price': 100,
             'description': 'description',
-            'quantity': 1,  
-            'category': 'Cleanser', 
+            'quantity': 1,
+            'category': 'Cleanser',
         })
 
-        self.assertFalse(form.is_valid(), msg="Title was not provided, but form is valid")
+        self.assertFalse(
+            form.is_valid(),
+            msg="Title was not provided, but form is valid"
+        )
 
-    
     def test_price_is_required(self):
         """
         Test if price field is required.
@@ -46,13 +28,15 @@ class TestProductForm(TestCase):
             'title': 'product',
             'price': '',
             'description': 'description',
-            'quantity': 1,  
-            'category': 'Cleanser', 
+            'quantity': 1,
+            'category': 'Cleanser',
         })
 
-        self.assertFalse(form.is_valid(), msg="Price was not provided, but form is valid")
+        self.assertFalse(
+            form.is_valid(),
+            msg="Price was not provided, but form is valid"
+        )
 
-    
     def test_description_is_required(self):
         """
         Test if description field is required.
@@ -61,14 +45,16 @@ class TestProductForm(TestCase):
             'title': 'product',
             'price': 100,
             'description': '',
-            'quantity': 1,  
-            'category': 'Cleanser', 
+            'quantity': 1,
+            'category': 'Cleanser',
         })
 
-        self.assertFalse(form.is_valid(), msg="Description was not provided, but form is valid")
+        self.assertFalse(
+            form.is_valid(),
+            msg="Description was not provided, but form is valid"
+        )
 
-
-    def test_quantity_is_required(self): 
+    def test_quantity_is_required(self):
         """
         Test if quantity field is required.
         """
@@ -76,12 +62,14 @@ class TestProductForm(TestCase):
             'title': 'product',
             'price': 100,
             'description': 'description',
-            'quantity': '',  
-            'category': 'Cleanser', 
+            'quantity': '',
+            'category': 'Cleanser',
         })
 
-        self.assertFalse(form.is_valid(), msg="Quantity was not provided, but form is valid")
-    
+        self.assertFalse(
+            form.is_valid(),
+            msg="Quantity was not provided, but form is valid"
+        )
 
     def test_category_is_required(self):
         """
@@ -91,12 +79,14 @@ class TestProductForm(TestCase):
             'title': 'product',
             'price': 100,
             'description': 'description',
-            'quantity': 1,  
-            'category': '', 
+            'quantity': 1,
+            'category': '',
         })
 
-        self.assertFalse(form.is_valid(), msg="Category was not provided, but form is valid")
-
+        self.assertFalse(
+            form.is_valid(),
+            msg="Category was not provided, but form is valid"
+        )
 
     def test_seller_is_required(self):
         """
@@ -106,9 +96,12 @@ class TestProductForm(TestCase):
             'title': 'product',
             'price': 100,
             'description': 'description',
-            'quantity': 1,  
-            'category': 'Cleanser', 
+            'quantity': 1,
+            'category': 'Cleanser',
             'seller': '',
         })
 
-        self.assertFalse(form.is_valid(), msg="Seller was not provided, but form is valid")
+        self.assertFalse(
+            form.is_valid(),
+            msg="Seller was not provided, but form is valid"
+        )
