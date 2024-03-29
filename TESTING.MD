@@ -171,6 +171,24 @@
 |Edit Message|Display message when user profile is edited|Pass|
 
 
+#### Account Registration
+|Account registration| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+
+|Username|Accept Username|Pass|
+|Email|Accept email|Pass|
+|Password|Accept password twice|Pass|
+|Sign up|Create account|Pass|
+
+#### Forgotten password 
+
+#### Logout page
+|Account registration| | |
+|:----|:----|:----|
+|Feature|Expected Outcome|Result|
+|Logout user|Logout|Pass|
+
 
 
 
