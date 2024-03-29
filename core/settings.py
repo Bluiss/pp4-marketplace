@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+
+from os import path
 from pathlib import Path
 import os
 import sys
@@ -171,12 +173,9 @@ USE_TZ = True
 
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATIC_ROOT = 'static' 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    path.join(BASE_DIR, 'static'), 
-)
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
