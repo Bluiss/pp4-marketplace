@@ -1,10 +1,12 @@
 from django import forms
 from .models import Product
 
+
+
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('seller', 'title', 'price', 'quantity','category','product_image','description')
+        fields = ('seller', 'title', 'price', 'quantity','category','description')
 
         widgets = {
             'seller': forms.Select(attrs={'class': 'form-control'}),
@@ -12,6 +14,5 @@ class ProductForm(forms.ModelForm):
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
             'quantity': forms.NumberInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
-            'product_image': forms.FileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
         }

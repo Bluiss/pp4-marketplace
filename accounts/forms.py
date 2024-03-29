@@ -7,8 +7,8 @@ class ProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('name',
                  'date_of_birth', 
-                 'country', 'phone_number', 
-                 'profile_picture', 
+                 'country', 
+                 'phone_number', 
                  'address')
         
         widgets = {
@@ -16,6 +16,5 @@ class ProfileForm(forms.ModelForm):
             'date_of_birth': forms.DateInput(attrs={'class': 'form-control'}),
             'country': forms.TextInput(attrs={'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
-            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}),
             'address': forms.Textarea(attrs={'class': 'form-control'}),
         }

@@ -21,6 +21,17 @@ if os.path.isfile('env.py'):
     import env
 
 
+# Cloudinary settings
+    
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -34,7 +45,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = ['192.168.1.1', '127.0.0.1','.herokuapp.com', '8000-bluiss-pp4marketplace-o07w3fb6wmn.ws-eu110.gitpod.io']
 

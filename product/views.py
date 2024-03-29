@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
+import cloudinary.uploader
 
 
 
@@ -54,12 +54,21 @@ def new(request):
 @login_required
 def edit(request, model_id):
     product = Product.objects.get(pk=model_id)
+    
     if request.method == 'POST' and request.user.is_superuser:
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
+            # Handle image upload to Cloudinary
+            image_file = request.FILES.get('product_image')
+            if image_file:
+                # Upload image to Cloudinary
+                upload_result = cloudinary.uploader.upload(image_file)
+                # Update product's image URL with the Cloudinary URL
+                product.product_image = upload_result['url']
+
             form.save()
             messages.success(request, "Product edited successfully.")
-            return redirect('product:product_detail', model_id)
+            return redirect('product:product_detail', pk=model_id)  # Provide the model_id
     else:
         form = ProductForm(instance=product)
 

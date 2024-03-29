@@ -1,30 +1,51 @@
-{% extends "base.html" %} {% block title %}{{ title }}{% endblock %} {% block
-content %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
 <div class="container mt-5 roboto">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h1 class="mb-4 text-center">{{ title }}</h1>
 
       <form
-        action="{% url 'product:new' %}"
+        action="{% url 'edit_profile' user_profile.user.id %}"
         method="post"
-        accept="."
         enctype="multipart/form-data"
         class="needs-validation"
-        novalidate
       >
         {% csrf_token %}
 
-        <div class="mb-3">{{ form.as_p }}</div>
+        <div class="mb-3">
+          {{ form.name.label_tag }}
+          {{ form.name }}
+        </div>
+        <div class="mb-3">
+          {{ form.date_of_birth.label_tag }}
+          {{ form.date_of_birth }}
+        </div>
+        <div class="mb-3">
+          {{ form.country.label_tag }}
+          {{ form.country }}
+        </div>
+        <div class="mb-3">
+          {{ form.phone_number.label_tag }}
+          {{ form.phone_number }}
+        </div>
+        <div class="mb-3">
+          {{ form.profile_picture.label_tag }}
+          {{ form.profile_picture }}
+        </div>
+        <div class="mb-3">
+          {{ form.address.label_tag }}
+          {{ form.address }}
+        </div>
 
-        {% if form.errors or form.non_field_errors %}
+        {% if form.errors %}
         <div class="alert alert-danger">
-          {% for field in form %} {% if field.errors %}
-          <strong>{{ field.label }}</strong>: {{ field.errors|striptags }}<br />
-          {% endif %} {% endfor %} {% if form.non_field_errors %}
-          <strong>Non-field errors:</strong> {{ form.non_field_errors|striptags
-          }}<br />
-          {% endif %}
+          {% for field in form %}
+            {% for error in field.errors %}
+              <strong>{{ field.label }}</strong>: {{ error|striptags }}<br />
+            {% endfor %}
+          {% endfor %}
         </div>
         {% endif %}
 

@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from cloudinary.models import CloudinaryField
-from django.contrib.auth.models import User  # Import User model
+from django.contrib.auth.models import User 
 
 
 class Product(models.Model):
