@@ -1,0 +1,135 @@
+body {
+  font-family: "Playfair Display", serif;
+  color: black !important;
+  min-height: 100vh;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/* Navigation styling */
+
+#finns {
+  font-size: 54px;
+  color: black !important;
+}
+
+#head-color {
+  height: 60px;
+  background-color: #083a73;
+}
+
+
+/* Hero styling */
+
+#hero-video {
+  width: 100%;
+  height: 470px;
+  object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+.featured-container {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* About us index.html styling */
+/* Override Bootstrap image styling to make images responsive */
+.about-us-text img,
+.about-us-img img {
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  border-radius: 24px;
+}
+
+/* Product image styling */
+
+.product-image {
+  height: 30vh;
+  object-fit: cover;
+}
+
+.product-detail {
+  margin-top: 5vh;
+}
+
+.product-image-detail {
+  height: 40vh;
+  object-fit: cover;
+}
+
+/* About Us styling */
+
+.about-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Signup styling */
+
+.signup {
+  margin-bottom: 100px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+/* contact us styling */
+
+#hero-contact-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.img-container {
+  position: relative;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 40px;
+  font-family: "Roboto", serif;
+}
+
+@media screen and (max-width: 425px) {
+  .contact-us {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* Product styling*/
+
+.product-title {
+  text-decoration: none;
+  color: #083a73;
+  font-size: 24px;
+}
+
+/* Checkout styling */
+
+.checkout-product-image-detail {
+  height: 15vh;
+  object-fit: cover;
+}
+
+/* Profile Styling */
+.edit-profile-icon {
+  font-size: 2vh;
+}
+
+/* Footer styling */
