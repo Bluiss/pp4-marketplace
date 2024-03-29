@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os
 import sys
-from django.conf.urls.static import static
+from django.contrib.messages import constants as messages
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -81,13 +81,13 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",  # new
 ]
 
-SITE_ID = 1  # new
+SITE_ID = 1  
 
-ACCOUNT_EMAIL_VERIFICATION = "none"  # new
+ACCOUNT_EMAIL_VERIFICATION = "none"  
 
-LOGIN_REDIRECT_URL = "/"  # new
+LOGIN_REDIRECT_URL = "/"  
 
-LOGOUT_REDIRECT_URL = "/"  # new
+LOGOUT_REDIRECT_URL = "/"  
 
 
 
@@ -175,8 +175,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 # Default primary key field type
