@@ -16,9 +16,9 @@
                   <div class="card-body">
                     <div class="image-container">
                       <div class="image-flash">
+                        <a href="{% url 'product:product_detail' pk=post.pk %}">
                         {% if "placeholder" in post.product_image.url %}
-                        <a href="{% url 'product:product_detail' pk=post.pk %}"
-                          ><img
+                        <img
                             class="card-img-top"
                             src="{% static 'images/pexels-karolina-grabowska-4041392.jpg' %}"
                             alt="placeholder image"

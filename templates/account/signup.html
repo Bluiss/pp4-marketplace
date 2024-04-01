@@ -1,7 +1,6 @@
 {% extends "base.html" %} {% load i18n %} {% block head_title %}{% trans
 "Signup" %}{% endblock %} {% block content %}
 
-
 <div class="container signup">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
@@ -23,7 +22,7 @@
           value="{{ redirect_field_value }}"
         />
         {% endif %}
-        <button class="btn btn-primary " type="submit">
+        <button class="btn btn-primary" type="submit">
           {% trans "Sign Up" %} &raquo;
         </button>
       </form>
@@ -31,9 +30,11 @@
   </div>
 </div>
 
-<h6 class="roboto">
-  Already have an account, sign in <a href="{% url 'accounts:register' %}">Here</a>
-</h6>
-
+<div class="container">
+  <h6 class="roboto justify-content-center">
+    Already have an account, sign in
+    <a href="{% url 'accounts:register' %}">Here</a>
+  </h6>
+</div>
 
 {% endblock %}
