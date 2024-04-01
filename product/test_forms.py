@@ -2,6 +2,7 @@ from django.test import TestCase
 from .forms import ProductForm
 from django.contrib.auth.models import User
 
+
 class TestProductForm(TestCase):
     def test_title_is_required(self):
         """
