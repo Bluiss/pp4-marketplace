@@ -208,7 +208,6 @@ Product forms were tested both manually and through unittesting
 |Password|Accept password twice|Pass|
 |Sign up|Create account|Pass|
 
-#### Forgotten password 
 
 #### Logout page
 |Account registration| | |
