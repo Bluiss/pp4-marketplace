@@ -21,14 +21,37 @@
 ###  W3C Validator
 
 #### 
-- All HTML pages were tested through the W3C validator, all passed.
+All HTML pages were tested through the W3C validator, all passed except one. 
+
+When researching, there is an issue with the allauth framework code that throws an W3 error on signup.html. Other students have submitted the issue in the open source repo.
+
 
 
 #### CSS Validation
+
 ![CSS Validation](/static/images/readme_images/testing/css%20validator.png)
 
 ### Lighthouse
 
+All tests were completed with google lighthouse, when conducting tests there were consistent low performance scores. When researching on slack, other students had the same issue due to the bootstrap CDN and cloudinary images being too large. This would be part of a future update to incorporate a maximum size formatter built into the model. 
+
+#### Index 
+![index](/static/images/readme_images/testing/lighthouse/index.png)
+
+#### About Us
+![about](/static/images/readme_images/testing/lighthouse/about.png)
+
+#### Product Page
+![product](/static/images/readme_images/testing/lighthouse/product.png)
+
+#### Product Detail
+![product detail](/static/images/readme_images/testing/lighthouse/product-detail.png)
+
+#### Contact Us
+![Contact](/static/images/readme_images/testing/lighthouse/contact-us.png)
+
+#### Profile
+![profile](/static/images/readme_images/testing/lighthouse/profile.png)
 
 
 ### Python 
