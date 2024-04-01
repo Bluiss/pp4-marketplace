@@ -2,7 +2,9 @@
 
 ### Brief Description
 
-Brief description of the project.
+![Site Header](/static/images/readme_images/site-header.png)
+
+[FIINS Marketplace]()
 
 ___
 
@@ -105,7 +107,7 @@ ___
 
 ## Colour Scheme
 
-[Color Pallet](/static/images/readme_images/pp4-colors%20.png)
+![Color Pallet](/static/images/readme_images/pp4-colors%20.png)
 
 ## Typography
 
@@ -162,19 +164,19 @@ The main font used is Playfair Display, with Roboto filling in the rest of the s
 Users are able to, create and edit their profile information
 
 #### Create Account
-[Create Account](/static/images/readme_images/create_account.png)
+![Create Account](/static/images/readme_images/create_account.png)
 #### Edit Account
-[Edit Account](/static/images/readme_images/edit_profile.png)
+![Edit Account](/static/images/readme_images/edit_profile.png)
 ## Product Features
 
 #### Edit Product
-[Edit Product](/static/images/readme_images/edit_product.png)
+![Edit Product](/static/images/readme_images/edit_product.png)
 #### New Product
-[New Product](/static/images/readme_images/new_product.png)
+![New Product](/static/images/readme_images/new_product.png)
 #### View All Product
-[View All Products](/static/images/readme_images/product_page.png)
+![View All Products](/static/images/readme_images/product_page.png)
 #### Delete Product
-[Delete Product](/static/images/readme_images/delete_feature.png)
+![Delete Product](/static/images/readme_images/delete_feature.png)
 ## Future Features
 
 #### Cart Function
