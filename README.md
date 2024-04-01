@@ -39,7 +39,7 @@ ___
 
 ## Site Objectives
 
-Design and create a basic eccomerce store to demonstrate understanding of the libraries and frameworks available to developers.
+Design and create a basic skincare storefront to demonstrate an understanding of the Django & Bootstrap Frameworks.
 
 #### My three main objectives were:
 
@@ -105,11 +105,11 @@ ___
 
 ## Colour Scheme
 
-Pallete
+[Color Pallet](/static/images/readme_images/pp4-colors%20.png)
 
 ## Typography
 
-The main font used isPlayfair Display, with Roboto filling in the rest of the site
+The main font used is Playfair Display, with Roboto filling in the rest of the site
 
 
 ## Wireframes
@@ -118,7 +118,8 @@ The main font used isPlayfair Display, with Roboto filling in the rest of the si
 
 ## Flow Diagram
 
-Brief description of the flow diagram.
+- Here you can see a basic flow diagram on how a site user and site admin would use the website
+[Flow Chart](/static/images/readme_images/Flow%20.png)
 
 ## Database Plan
 
@@ -138,15 +139,6 @@ Brief description of the flow diagram.
 | created_at      | DateTimeField    |               |                           |
 | updated_at      | DateTimeField    |               |                           |
 | product_image   | CloudinaryField  |               |                           |
-
-
-### Shopping Cart Model 
-
-| Attribute | Type                 | Description                                    |
-|-----------|----------------------|------------------------------------------------|
-| user      | ForeignKey (User)    | References the user who owns the cart.         |
-| product   | ForeignKey (Product) | References the product added to the cart.      |
-| quantity  | IntegerField         | Represents the quantity of the product in cart.|
 
 
 ### Account Model
@@ -170,15 +162,19 @@ Brief description of the flow diagram.
 Users are able to, create and edit their profile information
 
 #### Create Account
+[Create Account](/static/images/readme_images/create_account.png)
 #### Edit Account
-
+[Edit Account](/static/images/readme_images/edit_profile.png)
 ## Product Features
 
 #### Edit Product
+[Edit Product](/static/images/readme_images/edit_product.png)
 #### New Product
+[New Product](/static/images/readme_images/new_product.png)
 #### View All Product
+[View All Products](/static/images/readme_images/product_page.png)
 #### Delete Product
-
+[Delete Product](/static/images/readme_images/delete_feature.png)
 ## Future Features
 
 #### Cart Function
