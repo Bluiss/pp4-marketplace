@@ -242,4 +242,5 @@ Each device tested the site using the following browsers:
 
 
 ## BUGS
-
+#### Password Reset
+Couldn't connect password reset to backend, would look to add password reset functionality in future release.

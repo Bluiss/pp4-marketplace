@@ -280,9 +280,9 @@ To create a clone you do the following;
 
 ## Credits
 
-Brief description of credits.
+https://mdbootstrap.com/docs/standard/extended/profiles/
+https://mdbootstrap.com/docs/standard/components/cards/
+
+https://reintech.io/blog/building-a-shopping-cart-in-django (used in dormant shopping cart function)
 
 
-## Acknowledgments and Thanks
-
-Brief acknowledgment of individuals who provided assistance.
