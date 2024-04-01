@@ -3,7 +3,7 @@
 ### Contents
 * [Automated Testing](#automated-testing)
   * [W3C Validator](#w3c-validator)
-  * [CSS Validation]
+  * [CSS Validation](#css-validation)
   * [Lighthouse](#lighthouse)
   *
 
@@ -28,6 +28,7 @@
 ![CSS Validation](/static/images/readme_images/testing/css%20validator.png)
 
 ### Lighthouse
+
 
 
 ### Python 
