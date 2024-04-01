@@ -17,16 +17,16 @@
     <div class="col-sm">
       {% if form.instance.product_image %}
       <img
-        class="card-img-top img-fluid product-image-detail"
-        src="{% static 'images/pexels-karolina-grabowska-4041392.jpg' %}"
-        alt="placeholder image"
-      />
-      {% else %}
-      <img
         src="{{ form.instance.product_image.url }}"
         alt="Product Image"
         class="img-fluid mt-3"
       />
+      {% else %}
+      <img
+      class="card-img-top img-fluid product-image-detail"
+      src="{% static 'images/pexels-karolina-grabowska-4041392.jpg' %}"
+      alt="placeholder image"
+    />
       {% endif %}
     </div>
   </div>
