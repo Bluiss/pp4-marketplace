@@ -69,7 +69,8 @@ def edit(request, model_id):
     else:
         form = ProductForm(instance=product)
 
-    return render(request, 'product/edit.html', {'product': product, 'form': form})
+    return render(request,
+                  'product/edit.html', {'product': product, 'form': form})
 
 
 @login_required

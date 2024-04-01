@@ -13,6 +13,20 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='product',
             name='category',
-            field=models.CharField(blank=True, choices=[('Cleanser', 'cleanser'), ('Moisturizer', 'moisturizer'), ('Serum', 'serum'), ('Sunscreen', 'sunscreen'), ('Mask', 'mask'), ('Toner', 'toner'), ('Exfoliant', 'exfoliant'), ('Eye Cream', 'eye_cream')], max_length=20, null=True),
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ('Cleanser', 'cleanser'),
+                    ('Moisturizer', 'moisturizer'),
+                    ('Serum', 'serum'),
+                    ('Sunscreen', 'sunscreen'),
+                    ('Mask', 'mask'),
+                    ('Toner', 'toner'),
+                    ('Exfoliant', 'exfoliant'),
+                    ('Eye Cream', 'eye_cream')
+                ],
+                max_length=20,
+                null=True,
+            ),
         ),
     ]
