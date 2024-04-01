@@ -6,6 +6,8 @@
 
 [FIINS Marketplace]()
 
+FINNS started off as a basic ecommerce store thats turned into a storefront for various skincare brands, Users are able to browse products, create an account and understand which products are being spoken about on the site. 
+
 ___
 
 ## Contents

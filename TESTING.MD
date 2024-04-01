@@ -21,20 +21,23 @@
 ###  W3C Validator
 
 #### 
-- All HTML pages were tested through the W3C validator, all passed except one
-- 
+- All HTML pages were tested through the W3C validator, all passed.
+
 
 #### CSS Validation
-
+![CSS Validation](/static/images/readme_images/testing/css%20validator.png)
 
 ### Lighthouse
 
 
 ### Python 
+All python was validated with the CI Python Linter & the pycodestyle tool to ensure pep8 validation. 
 
+![python validation](/static/images/readme_images/testing/pep8-validation.png)
 
 ### unittest
 
+Product forms were tested both manually and through unittesting
 
 ## MANUAL TESTING
 
